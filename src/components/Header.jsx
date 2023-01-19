@@ -1,10 +1,10 @@
 function Header() {
     return (
       <>
-        <section className="hero is-medium is-link">
+        <section className="hero is-link">
             <div className="hero-body">
                 <p className="title">
-                    Language of Flower 
+                    Languages of Flowers 
                 </p>
                 <p className="subtitle">
                     Classification by emotion

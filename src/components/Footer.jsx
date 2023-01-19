@@ -1,11 +1,11 @@
 function Footer() {
     return (
       <>
-        <section className="hero is-link">
-            <div className="hero-body has-text-centered">
+        <footer className="footer has-background-link">
+            <div className="content is-link has-text-centered">
                 <p>&copy; azumanaoki</p>
             </div>
-        </section>
+        </footer>
       </>
     );
   }

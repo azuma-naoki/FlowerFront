@@ -1,26 +1,29 @@
-// import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 function Select(props) {
-    // const navigate = useNavigate();
-    // const setId = props.setId;
+    const [target, setTarget] = useState(0);
 
-    function subForm(event){
-        event.preventDefault();
-        // event.stopPropagation();
-        // const { emotion } = event.target.elements;
-        // props.setId(emotion.value);
-        // this.setId(1);
-        console.log(props.hello);
-        // navigate("/result");
+    useEffect(()=>{
+        console.log("change"+target);
+    },[target])
+
+    useEffect(()=>{
+        console.log("submit"+props.e_id);
+    },[props.e_id])
+
+    function doChange(event){
+        const target_id = event.target.value;
+        setTarget(target_id);
     }
 
     return (
-      <>
-        <section className="is-white">
-            <p> this is contents</p>
-            <p>choose your emotion</p>
-            <form onSubmit={subForm}>
-                <div className="select is-link">
-                    <select name="emotion">
+      <div className="content">
+        <section className="section is-white">
+            <div className="content has-text-centered">
+            <h3>choose your emotion</h3>
+            <form>
+                <div className="select is-rounded is-medium is-link">
+                    <select name="emotion" onChange={doChange}>
                         <option value={0}>喜び</option>
                         <option value={1}>信頼</option>
                         <option value={2}>恐れ</option>
@@ -31,10 +34,13 @@ function Select(props) {
                         <option value={7}>期待</option>
                     </select>
                 </div>
-                <button type="submit" className="button is-link">Search</button>
+                <Link to={`/emotion/${target}`}>
+                <button type="submit" className="button is-medium is-link">Search</button>
+                </Link>
             </form>
+            </div>
         </section>
-      </>
+      </div>
     );
   }
   
