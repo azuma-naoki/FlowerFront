@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { fetchFlowerData } from "../api/api";
 
 function FlowerRlt() {
     const [data, setData] = useState(null);
     const { f_name } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchFlowerData(f_name).then((jdata) => {
@@ -13,6 +14,8 @@ function FlowerRlt() {
     }, []);
 
     return (
+        <>
+        <button className="button is-link" onClick={()=>{navigate(-1)}}>go back</button>
       <div className="content">
         <section className="is-medium is-link">
             <div className="message is-link">
@@ -51,6 +54,7 @@ function FlowerRlt() {
             </Link>
         </div>
       </div>
+      </>
     );
   }
   
